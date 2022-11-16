@@ -21,7 +21,7 @@ function onDeviceReady() {
             var myNewImage = fileEntry.toURL()
             console.log(myNewImage);
             // do something with URL, assign to src or create an html 
-            $("#takePhoto").after("<img src='" + myNewImage + "'>")
+            $("#results").append("<img src='" + myNewImage + "'>")
         }, onPicError);
 
     }
@@ -43,13 +43,19 @@ function onDeviceReady() {
     function vidSuccess(mediaFiles) {
         console.log(mediaFiles);
         var path = mediaFiles[0].fullPath;
-        console.log(path)
+        var hostedpath = mediaFiles[0].localURL;
+        console.log("full path: " + path)
+        console.log("localURL:" + hostedpath)
 
+        // *** this should work, as it has the same source and protocol as the image above
+        //$("#results").append('<video controls><source src="' + hostedpath + '" type="video/mp4"></video>')
+
+        // attempting to covert the full path using file plugin, seems to result in the same path as the localURL does
         resolveLocalFileSystemURL(path, function (fileEntry) {
-            var vpath = fileEntry.toInternalURL()
-            console.log(vpath);
+            var newpath = fileEntry.toURL()
+            console.log("converted path:" + newpath)
             // do something with URL, assign to src or create an html 
-            $("#results").append('<video controls><source src="' + vpath + '" type="video/mp4"></video>')
+            $("#results").append('<video controls><source src="' + newpath + '" type="video/mp4"></video>')
         }, onPicError);
 
 
