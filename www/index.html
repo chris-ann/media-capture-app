@@ -31,7 +31,7 @@
         -->
     <!-- GOOGLE FONTS has been added to the security policy -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; media-src *; img-src 'self' data: content:; font-src 'self' data: fonts.gstatic.com;">
+        content="default-src 'self' data: cdvfile: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; media-src *; img-src 'self' data: content: android-webview-video-poster:; font-src 'self' data: fonts.gstatic.com;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -41,6 +41,13 @@
 </head>
 
 <body>
+
+    <button id="takePhoto">Take a Photo</button>
+    <button id="takeVid">Take a Video</button>
+    <button id="recAud">Record Audio</button>
+
+    <div id="results"></div>
+
     <script src="cordova.js"></script>
     <script src="js/jquery-3.6.1.min.js"></script>
     <script src="js/index.js"></script>

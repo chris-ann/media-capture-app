@@ -8,5 +8,8 @@
     <content src="index.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-     <icon src="res/icon/youriconhere.png">
+     <icon src="res/icon/youriconhere.png" />
+     <preference name="AndroidExtraFilesystems" value="files,files-external,documents,sdcard,cache,cache-external,assets,root" />
+     <access origin="cdvfile://*" />
+     <access origin="https://*" />
 </widget>
